@@ -8,25 +8,20 @@ function inOrder(currentNode){
     }
 }
 
-function findOrAdd(rootNode, newNode) {
-
-    if (newNode.data < rootNode.data) {
-        if (rootNode.left) {
-            return findOrAdd(rootNode.left, newNode)
+function findOrAdd(currentNode, newNode) {
+    if (newNode.data < currentNode.data) {
+        if (currentNode.left) {
+            return findOrAdd(currentNode.left, newNode)
         } else {
-            return rootNode.left = newNode
+            return currentNode.left = newNode
         }
-    }
-
-    if (newNode.data > rootNode.data) {
-        if (rootNode.right) {
-            return findOrAdd(rootNode.right, newNode)
+    } else if (newNode.data > currentNode.data) {
+        if (currentNode.right) {
+            return findOrAdd(currentNode.right, newNode)
         } else {
-            return rootNode.right = newNode
+            return currentNode.right = newNode
         }
-    }
-
-    if (newNode.data === rootNode.data) {
+    } else {
         return true
     }
 }
